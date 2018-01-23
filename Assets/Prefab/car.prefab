@@ -57,7 +57,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 0.2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationSpeed: 4
   brakingSpeed: 3
-  steering: 3
+  steering: 2
 --- !u!212 &212600672742312694
 SpriteRenderer:
   m_ObjectHideFlags: 1
