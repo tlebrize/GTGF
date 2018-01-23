@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
 	CarScript			car;
-	Camera				camera;
+	Camera				mainCamera;
 	
 	[HideInInspector]
 	public GameObject 	currentTile;
@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Start() {
 		car = gameObject.GetComponent<CarScript>();
-		camera = Camera.main;
+		mainCamera = Camera.main;
 	}
 
 	void Update () {
@@ -31,6 +31,6 @@ public class PlayerScript : MonoBehaviour {
 			car.inputQueue.Enqueue(CarScript.Behaviours.Left);
 		if (horizontal < 0)
 			car.inputQueue.Enqueue(CarScript.Behaviours.Right);		
-		camera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+		mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
 	}
 }
