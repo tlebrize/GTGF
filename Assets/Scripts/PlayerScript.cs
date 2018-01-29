@@ -30,7 +30,9 @@ public class PlayerScript : MonoBehaviour {
 		if (horizontal > 0)
 			car.inputQueue.Enqueue(CarScript.Behaviours.Left);
 		if (horizontal < 0)
-			car.inputQueue.Enqueue(CarScript.Behaviours.Right);		
+			car.inputQueue.Enqueue(CarScript.Behaviours.Right);
+		if (Input.GetKey(KeyCode.Space))
+			car.inputQueue.Enqueue(CarScript.Behaviours.Boost);
 		mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
 	}
 }

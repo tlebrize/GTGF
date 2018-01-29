@@ -8,7 +8,7 @@ public class RoadManager : MonoBehaviour {
 	int					turnStep = 0;
 	int					turnDirection = 0;
 	int					turnSize = 2;
-	float				color = 0.1f;
+	float				color = 0.5f;
 	int					colorSign = 1;
 
 	public Transform 	player;
@@ -51,12 +51,14 @@ public class RoadManager : MonoBehaviour {
 	void Start() {
 		lineRenderer = GetComponent<LineRenderer>();
 		lineRenderer.positionCount = lineLength;
-		int i = 0;
-		Vector3 previousNode = new Vector3(0, 0, 0);
-		while (i++ < lineRenderer.positionCount - 1) {
-			lineRenderer.SetPosition(i, new Vector3(previousNode.x + FindTurn(), i*strechSize, 0));
-			previousNode = lineRenderer.GetPosition(i);
-		}
+		while (lineRenderer.GetPosition(1) == lineRenderer.GetPosition(0))
+			PushAllNodes();
+		// int i = 0;
+		// Vector3 previousNode = new Vector3(0, 0, 0);
+		// while (i++ < lineRenderer.positionCount - 1) {
+		// 	lineRenderer.SetPosition(i, new Vector3(previousNode.x + FindTurn(), i*strechSize, 0));
+		// 	previousNode = lineRenderer.GetPosition(i);
+		// }
 	}
 	
 	void UpdateColor () {
